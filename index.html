@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Proyecto: Taller de Poda y Gastronomía Regional</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        earth: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            800: '#5c4d47',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos específicos para impresión (PDF) */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .shadow-2xl {
+                box-shadow: none !important;
+            }
+            .print-border {
+                border: 1px solid #e5e7eb;
+            }
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Botón Flotante para Descargar (Se oculta al imprimir) -->
+    <div class="fixed bottom-8 right-8 z-50 no-print">
+        <button onclick="window.print()" class="flex items-center gap-2 bg-brand-800 hover:bg-brand-900 text-white px-6 py-3 rounded-full shadow-lg transition-transform hover:scale-105 font-medium">
+            <i data-lucide="download" class="w-5 h-5"></i>
+            Descargar como PDF
+        </button>
+    </div>
+
+    <!-- Contenedor Principal (Simula una hoja A4) -->
+    <main class="max-w-4xl mx-auto bg-white shadow-2xl my-8 sm:my-12 print:my-0 overflow-hidden print-border relative">
+        
+        <!-- Elemento de diseño superior -->
+        <div class="h-4 w-full bg-brand-800"></div>
+
+        <div class="p-10 sm:p-16">
+            
+            <!-- PORTADA -->
+            <header class="mb-20 text-center relative pt-12 pb-16 border-b border-gray-200">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -mt-4 opacity-10 no-print">
+                    <i data-lucide="leaf" class="w-48 h-48 text-brand-800"></i>
+                </div>
+                <div class="relative z-10">
+                    <p class="text-brand-700 font-semibold tracking-widest uppercase text-sm mb-4">Documento de Pre-Proyecto</p>
+                    <h1 class="font-serif text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                        Taller de Poda, Gastronomía Regional y <span class="text-brand-800">Desarrollo Territorial</span>
+                    </h1>
+                    <div class="flex items-center justify-center gap-3 text-lg text-gray-600 mb-8">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-brand-700"></i>
+                        <span>Calingasta, San Juan</span>
+                    </div>
+                    
+                    <div class="inline-block bg-brand-50 border border-brand-100 rounded-lg px-8 py-4 mt-6">
+                        <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">Impulsado por</p>
+                        <p class="font-serif font-bold text-xl text-brand-900">Comunidad +VOS Sinergia Agro</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 1. INTRODUCCIÓN & 2. CONTEXTO -->
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-brand-100 p-2 rounded-lg text-brand-800">
+                            <i data-lucide="info" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-gray-900">1. Introducción</h2>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        En el marco del desarrollo de <strong>+VOS Sinergia Agro</strong>, iniciativa impulsada por Agroconsulta orientada a fortalecer redes de colaboración entre empresas, productores, emprendedores y comunidad, se propone la realización de un taller de capacitación técnica y desarrollo local en Calingasta.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        El proyecto consiste en un encuentro de dos días que integrará formación técnica agrícola, capacitación gastronómica y espacios de diálogo. Busca generar impacto en tres dimensiones:
+                    </p>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-start gap-2 text-gray-700"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i> Productividad agrícola.</li>
+                        <li class="flex items-start gap-2 text-gray-700"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i> Fortalecimiento de la gastronomía regional.</li>
+                        <li class="flex items-start gap-2 text-gray-700"><i data-lucide="check-circle-2" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i> Articulación entre sectores.</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-earth-50 border border-earth-100 p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-earth-100 p-2 rounded-lg text-earth-800">
+                            <i data-lucide="mountain" class="w-6 h-6"></i>
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold text-gray-900">2. Contexto</h2>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Calingasta es un territorio con alto potencial, pero que enfrenta desafíos estructurales:
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><div class="w-1.5 h-1.5 rounded-full bg-earth-800"></div> Baja densidad poblacional.</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><div class="w-1.5 h-1.5 rounded-full bg-earth-800"></div> Distancias geográficas.</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><div class="w-1.5 h-1.5 rounded-full bg-earth-800"></div> Fragmentación entre sectores productivos.</li>
+                        <li class="flex items-center gap-3 text-sm text-gray-700"><div class="w-1.5 h-1.5 rounded-full bg-earth-800"></div> Dificultades de articulación social.</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mt-4 italic border-t border-earth-100 pt-4">
+                        El proyecto busca crear un espacio donde agro, gastronomía, comunidad e instituciones puedan encontrarse.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 3. OBJETIVO GENERAL -->
+            <div class="bg-brand-800 text-white rounded-2xl p-8 sm:p-10 mb-16 shadow-lg">
+                <h2 class="text-brand-100 font-medium tracking-wider uppercase text-sm mb-3">3. Objetivo General</h2>
+                <p class="font-serif text-xl sm:text-2xl leading-relaxed">
+                    "Promover un proceso inicial de capacitación técnica, vinculación territorial y fortalecimiento de la comunidad productiva de Calingasta, mediante un taller intensivo de dos días que integre agricultura, gastronomía regional y desarrollo local."
+                </p>
+            </div>
+
+            <div class="page-break"></div> <!-- Salto de página para el PDF -->
+
+            <!-- 4. OBJETIVOS ESPECÍFICOS -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-brand-100 p-2 rounded-lg text-brand-800">
+                        <i data-lucide="target" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-gray-900">4. Objetivos Específicos</h2>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="scissors" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Capacitar a productores en poda profesional y manejo eficiente del viñedo.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="cpu" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Promover la incorporación de tecnología que mejore productividad y condiciones.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="utensils-crossed" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Fortalecer la comunidad gastronómica local mediante capacitación profesional.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="grape" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Poner en valor los productos regionales de Calingasta.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="banknote" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Incentivar el turismo y la economía local mediante un evento de encuentro.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="users" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Generar un espacio de diálogo entre empresas, productores e instituciones.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="clipboard-list" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Recopilar información del ecosistema mediante encuestas y relevamientos.</p>
+                    </div>
+                    <div class="border border-gray-100 bg-white p-4 rounded-lg flex gap-4 items-start shadow-sm hover:shadow-md transition-shadow">
+                        <i data-lucide="sprout" class="w-6 h-6 text-brand-600 shrink-0 mt-1"></i>
+                        <p class="text-gray-700 text-sm">Sentar bases para futuras acciones coordinadas de desarrollo territorial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. ESTRUCTURA DEL TALLER -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-brand-100 p-2 rounded-lg text-brand-800">
+                        <i data-lucide="calendar-days" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-gray-900">5. Estructura del Taller</h2>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-8 relative">
+                    <!-- Decoración visual -->
+                    <div class="hidden sm:block absolute left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2"></div>
+                    
+                    <!-- Día 1 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 relative z-10">
+                        <div class="inline-block bg-brand-800 text-white font-bold px-4 py-1 rounded-full text-sm mb-4">Día 1</div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Apertura del encuentro</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Taller técnico de poda</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Demostraciones prácticas</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Espacios de intercambio</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Inicio de talleres gastronómicos</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Día 2 -->
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 relative z-10">
+                        <div class="inline-block bg-brand-800 text-white font-bold px-4 py-1 rounded-full text-sm mb-4">Día 2</div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Continuación técnica</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Talleres gastronómicos avanzados</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Encuentros productivos</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Relevamiento de información</span></li>
+                            <li class="flex items-center gap-3"><div class="w-2 h-2 rounded-full bg-brand-500"></div> <span class="text-gray-700">Cierre y reflexión colectiva</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 y 7. EJES TEMÁTICOS -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Eje Agrícola -->
+                <div class="border-l-4 border-brand-500 pl-6 py-2">
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="tractor" class="w-5 h-5 text-brand-600"></i>
+                        6. Eje Técnico Agrícola
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Orientado a productores de vid, trabajadores rurales y empresas agrícolas.
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2 mb-4">
+                        <li>• Fundamentos fisiológicos de la poda</li>
+                        <li>• Criterios para mejorar rendimiento</li>
+                        <li>• Ergonomía e higiene laboral</li>
+                        <li>• Mantenimiento de herramientas</li>
+                    </ul>
+                    <div class="bg-brand-50 p-3 rounded text-xs text-brand-800">
+                        * Incluye integración de herramientas Bahco para mejorar prácticas y condiciones de trabajo.
+                    </div>
+                </div>
+
+                <!-- Eje Gastronómico -->
+                <div class="border-l-4 border-earth-800 pl-6 py-2">
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <i data-lucide="chef-hat" class="w-5 h-5 text-earth-800"></i>
+                        7. Eje Gastronómico
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Co-liderado por Agroconsulta y Lorena Araya (La Bonita), junto a especialistas de Pirlo.
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2 mb-4">
+                        <li>• Atención profesional de mesas y hospitalidad</li>
+                        <li>• Organización del trabajo gastronómico</li>
+                        <li>• Identidad gastronómica regional</li>
+                        <li>• Valorización de productos locales</li>
+                    </ul>
+                    <div class="bg-earth-50 p-3 rounded text-xs text-earth-800">
+                        * Busca fortalecer las capacidades del sector promoviendo la experiencia del visitante.
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-break"></div> <!-- Salto de página para el PDF -->
+
+            <!-- 8 y 9. COMUNIDAD Y RELEVAMIENTO -->
+            <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 mb-16">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-4">8. Comunidad +VOS</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            +VOS busca generar un espacio colaborativo para elevar el estándar productivo y humano de la región. Más que una red comercial, es una plataforma basada en:
+                        </p>
+                        <ul class="space-y-2 text-sm font-medium text-brand-800">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i> Confianza entre actores</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i> Intercambio de conocimiento</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4"></i> Proyectos con impacto real</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl font-bold text-gray-900 mb-4">9. Proceso de Escucha</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            Desarrollo de encuestas para comprender el ecosistema productivo. Esto permitirá:
+                        </p>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div class="bg-white p-3 rounded shadow-sm border border-gray-100">Identificar necesidades</div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-gray-100">Detectar oportunidades</div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-gray-100">Comprender barreras</div>
+                            <div class="bg-white p-3 rounded shadow-sm border border-gray-100">Generar insumos futuros</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. ACTORES DEL PROYECTO -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-brand-100 p-2 rounded-lg text-brand-800">
+                        <i data-lucide="network" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-gray-900">10. Actores del Proyecto</h2>
+                </div>
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Actor 1 -->
+                    <div class="border border-gray-200 p-5 rounded-xl hover:border-brand-300 transition-colors">
+                        <h4 class="font-bold text-lg text-brand-900 mb-2">Agroconsulta</h4>
+                        <p class="text-sm text-gray-600">Coordinación general, diseño técnico y comunicación. En proceso de certificación como Empresa B, apostando por un propósito mayor al interés individual.</p>
+                    </div>
+                    <!-- Actor 2 -->
+                    <div class="border border-gray-200 p-5 rounded-xl hover:border-brand-300 transition-colors">
+                        <h4 class="font-bold text-lg text-brand-900 mb-2">CUUNA</h4>
+                        <p class="text-sm text-gray-600">Empresa de Calingasta. Su participación integrará el mundo productivo con la experiencia territorial y vitivinícola.</p>
+                    </div>
+                    <!-- Actor 3 -->
+                    <div class="border border-gray-200 p-5 rounded-xl hover:border-brand-300 transition-colors">
+                        <h4 class="font-bold text-lg text-brand-900 mb-2">Los Azules</h4>
+                        <p class="text-sm text-gray-600">Proyecto minero que busca operar bajo estándares de sustentabilidad, fortaleciendo el vínculo entre empresa, comunidad y desarrollo.</p>
+                    </div>
+                    <!-- Actor 4 -->
+                    <div class="border border-gray-200 p-5 rounded-xl hover:border-brand-300 transition-colors">
+                        <h4 class="font-bold text-lg text-brand-900 mb-2">Comunidad Gastronómica</h4>
+                        <p class="text-sm text-gray-600">Emprendedores, cocineros y actores del turismo que darán vida a los talleres prácticos.</p>
+                    </div>
+                    <!-- Actor 5 -->
+                    <div class="border border-gray-200 p-5 rounded-xl sm:col-span-2 bg-gray-50">
+                        <h4 class="font-bold text-lg text-brand-900 mb-2">Aliados Estratégicos (ONGs y Sistema B)</h4>
+                        <p class="text-sm text-gray-600">Organizaciones de la sociedad civil y representantes de Sistema B aportarán su visión sobre modelos económicos de impacto positivo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11 y 12. FINANCIAMIENTO Y PROYECCIÓN -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white border-2 border-brand-100 p-6 rounded-xl">
+                    <h3 class="font-serif text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <i data-lucide="wallet" class="w-5 h-5 text-brand-600"></i>
+                        11. Financiamiento
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Se requerirá apoyo para cubrir aspectos operativos esenciales y mantener el evento abierto a la comunidad:
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Logística</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Traslados</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Comunicación</span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full">Materiales</span>
+                    </div>
+                </div>
+
+                <div class="bg-brand-900 text-white p-6 rounded-xl">
+                    <h3 class="font-serif text-xl font-bold mb-3 flex items-center gap-2">
+                        <i data-lucide="rocket" class="w-5 h-5 text-brand-300"></i>
+                        12. Proyección
+                    </h3>
+                    <p class="text-sm text-brand-100 leading-relaxed">
+                        Este Taller se plantea como una <strong>experiencia piloto</strong>. La meta a largo plazo es sentar las bases para futuras iniciativas, construyendo confianza y abriendo oportunidades reales de cooperación entre todos los actores de Calingasta.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- FOOTER -->
+        <footer class="bg-gray-50 border-t border-gray-200 p-6 text-center text-sm text-gray-500">
+            <p>Formulación de Proyecto • Comunidad +VOS Sinergia Agro • Calingasta, San Juan</p>
+        </footer>
+    </main>
+
+    <!-- Inicializar iconos -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
